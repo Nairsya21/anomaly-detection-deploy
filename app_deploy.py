@@ -318,7 +318,10 @@ with tab_single:
         st.error(f"Prediksi model ({model_label}): {verdict} \u2014 keliru. {truth}")
 
     gmax = max(threshold * 3, err_i * 1.2)
-    st.markdown("**Reconstruction error**")
+    st.markdown(
+        "<div style='text-align:center; font-size:22px; font-weight:600; margin-bottom:-10px;'>Reconstruction error</div>",
+        unsafe_allow_html=True,
+    )
     fig = go.Figure(go.Indicator(
         mode="gauge+number", value=err_i,
         number={"font": {"size": 40}},
