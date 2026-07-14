@@ -1,0 +1,77 @@
+{
+  "_comment": "Angka diselaraskan dengan output_network/PTQ_COMPARISON_network.md. Latency diukur di CPU, per-sample. Threshold di-set ulang per model.",
+  "models": [
+    {
+      "name": "float32",
+      "size_kb": 3112.2,
+      "size_reduction": "1.0x",
+      "latency_ms": 144.6483,
+      "speedup": "1.0x",
+      "roc_auc": 0.8833,
+      "ap": 0.9902,
+      "precision": 0.9924,
+      "recall": 0.3546,
+      "f1": 0.5225,
+      "fpr": 0.0540,
+      "recall_per_type": {
+        "backdoor": 0.9990,
+        "ddos": 0.4507,
+        "dos": 0.5257,
+        "injection": 0.1273,
+        "mitm": 0.4090,
+        "password": 0.1285,
+        "ransomware": 0.9962,
+        "scanning": 0.9902,
+        "xss": 0.5110
+      }
+    },
+    {
+      "name": "dynamic int8",
+      "size_kb": 304.0,
+      "size_reduction": "10.236x",
+      "latency_ms": 8.3327,
+      "speedup": "17.359x",
+      "roc_auc": 0.8778,
+      "ap": 0.9898,
+      "precision": 0.9921,
+      "recall": 0.3445,
+      "f1": 0.5114,
+      "fpr": 0.0543,
+      "recall_per_type": {
+        "backdoor": 0.9990,
+        "ddos": 0.4410,
+        "dos": 0.5202,
+        "injection": 0.1005,
+        "mitm": 0.4678,
+        "password": 0.1261,
+        "ransomware": 0.9962,
+        "scanning": 0.9907,
+        "xss": 0.5051
+      }
+    },
+    {
+      "name": "static int8",
+      "size_kb": 318.4,
+      "size_reduction": "9.775x",
+      "latency_ms": 2.367,
+      "speedup": "61.111x",
+      "roc_auc": 0.7462,
+      "ap": 0.9752,
+      "precision": 0.9733,
+      "recall": 0.0641,
+      "f1": 0.1202,
+      "fpr": 0.0348,
+      "recall_per_type": {
+        "backdoor": 0.0726,
+        "ddos": 0.2483,
+        "dos": 0.0440,
+        "injection": 0.0068,
+        "mitm": 0.1444,
+        "password": 0.0015,
+        "ransomware": 0.0038,
+        "scanning": 0.0915,
+        "xss": 0.0423
+      }
+    }
+  ]
+}
