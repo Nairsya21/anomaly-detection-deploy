@@ -318,12 +318,14 @@ with tab_single:
         st.error(f"Prediksi model ({model_label}): {verdict} \u2014 keliru. {truth}")
 
     gmax = max(threshold * 3, err_i * 1.2)
+    st.markdown("**Reconstruction error**")
     fig = go.Figure(go.Indicator(
-        mode="gauge+number", value=err_i, title={"text": "Reconstruction error"},
+        mode="gauge+number", value=err_i,
+        number={"font": {"size": 40}},
         gauge={"axis": {"range": [0, gmax]},
                "bar": {"color": C_RED if pred_i else C_GREEN},
                "threshold": {"line": {"color": C_ORANGE, "width": 4}, "value": threshold}}))
-    fig.update_layout(height=300, margin=dict(t=40, b=10))
+    fig.update_layout(height=300, margin=dict(t=30, b=10, l=30, r=30))
     st.plotly_chart(fig, use_container_width=True)
 
     with st.expander("Lihat nilai fitur window sampel ini (10 timestep \u00d7 44 fitur)"):
